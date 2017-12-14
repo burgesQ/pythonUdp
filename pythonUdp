@@ -10,78 +10,8 @@ import os
 import ssl
 
 tests = [
-
-    # simple test
-
-    [ "Simple string. Expected : ", 1,
-      "+APEND\r\n" ],
-    [ "Simple string, no string. Expected : ", 1,
-      "+\r\n" ],
-
-    [ "Error message. Expected : ", 1,
-      "-APEND\r\n" ],
-    [ "Error message, no message. Expected : ", 1,
-      "-\r\n" ],
-
-    [ "Integer. Expected : ", 1,
-      ":10\r\n" ],
-    [ "Integer, minus one. Expected : ", 1,
-      ":-1\r\n" ],
-    [ "Integer, no value. Expected : ", 1,
-      ":\r\n" ],
-
-    [ "BulkString. Expected : ", 1,
-      "$5\r\nAPEND\r\n" ],
-    [ "BulkString, no string. Expected : ", 1,
-      "$0\r\n\r\n" ],
-    [ "BulkString, -1. Expected : ", 1,
-      "$-1\r\n" ],
-    [ "BulkString, 0. Expected : ", 1,
-      "$0\r\n\r\n" ],
-
-    [ "Array, 0. Expected : ", 1,
-      "*0\r\n" ],
-    [ "Array, -1 w/ CRLF. Expected : ", 1,
-      "*-1\r\n" ],
-    [ "Array, 0 w/ string. Expected : ", 1,
-      "*0\r\n+APEND\r\n" ],
-    [ "Array, 0 w/ integer. Expected : ", 1,
-      "*0\r\n:10\r\n" ],
-    [ "Array, 0 w/ bulkStrung. Expected : ", 1,
-      "*0\r\n$5\r\nAPEND\r\n" ],
-    [ "Multi array, 0 w/ string, integer, bulkStrung. Expected : ", 1,
-      "*0\r\n+APEND\r\n:100\r\n$5\r\nAPEND\r\n" ],
-
-    # error test
-
-    # [ "Simple string, bad cmd. Expected : ", 0,
-    #   "+foobar\r\n" ],
-    # [ "Simple string, no symbole. Expected : ", 0,
-    #   "foobar\r\n" ],
-
-    # [ "Error message, no symbole. Expected : ", 0,
-    #   "foobar\r\n" ],
-
-    # [ "Integer, no symbole. Expected : ", 0,
-    #   "10\r\n" ],
-    # [ "Integer, letters in number. Expected : ", 0,
-    #   ":1a0\r\n" ],
-
-    # [ "BulkString, not enough char. Expected : ", 0,
-    #   "$4\r\nAPEND\r\n" ],
-    # [ "BulkString, integer, missing carrier return. Expected : ", 0,
-    #   "$5\nAPEND\r\n" ],
-    # [ "BulkString, integer, missing integer. Expected : ", 0,
-    #   "$\r\nAPEN\r\n" ],
-
-    # [ "BulkString, -1 w/ string. Expected : ", 0,
-    #   "$-1\r\naa\r\n" ],
-    # [ "BulkString, 0 w/ string. Expected : ", 0,
-    #   "$0\r\naa\r\n" ],
-
-    # [ "Array, 0 w/ data. Expected : ", 0,
-    #   "*0\r\nazaz\r\n" ],
-
+    # [ Title of the test, expected output, content send ]
+    [ "Test one. Simple string. Expected : ", "PONG", "PING" ],
 ]
 
 help = """Usage : ./test [-i ip][-p port][-o output_file][-a sizeChunk][-k key.pem -c cert.pem][-h]
@@ -227,7 +157,7 @@ def diffFile() :
         for line in compare :
             try :
                 if line != g_ok[i] :
-                    print ("Invalid test, expexted :{0}\n".format(oneLine))
+                    print ("Invalid test, expected :{0}\n".format(oneLine))
                     fail += 1
             except :
                 pass
