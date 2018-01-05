@@ -2,9 +2,9 @@
 
 # Code
 
-- [] class
+- [x] class
 - [] comments
-- [] clean up base
+- [x] clean up base
 - [] check values
 
 # Utils
