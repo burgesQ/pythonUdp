@@ -3,11 +3,11 @@
 # Code
 
 - [x] class
-- [] comments
+- [ ] comments
 - [x] clean up base
-- [] check values
+- [ ] check values
 
 # Utils
 
-- [] doc
-- [] json conf
+- [ ] doc
+- [ ] json conf
