@@ -27,4 +27,4 @@ class Snaky :
             self.handler.append_to_ok("Test {0} : {1}\n".format(count, "OK" if test[1] == 1 else "KO"))
             self.socket.send(test[2])
             count += 1
-        return self.tester.test()
+        return self.tester.diffFile()

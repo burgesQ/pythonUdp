@@ -11,7 +11,7 @@ class Tester:
         pass
 
     # Compare the output file from the server to the expected answers
-    def diffFile() :
+    def diffFile(self) :
         fail = 0
         if self.handler.get_compare != None :          # if -o as been actived
             sleep(1)
